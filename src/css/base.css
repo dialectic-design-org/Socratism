@@ -1,0 +1,123 @@
+:root {
+  --global-font-family: 'IBM Plex Mono', monospace;
+  --global-font-size: 14px;
+  --global-font-weight-regular: 400;
+  --global-font-weight-bold: 700;
+  --global-line-height: 1.6;
+  --ifm-font-family-base: var(--global-font-family);
+  --ifm-font-family-headings: var(--global-font-family);
+  --ifm-font-family-monospace: var(--global-font-family);
+  --ifm-font-size-base: var(--global-font-size);
+  --socratism-link-color: #0d9488;
+  --socratism-navbar-link-color: rgba(0, 0, 0, 0.85);
+  --ifm-link-color: var(--socratism-link-color);
+  --ifm-link-hover-color: var(--socratism-link-color);
+  --ifm-navbar-link-color: var(--socratism-navbar-link-color);
+  --ifm-navbar-link-hover-color: #000;
+  --ifm-footer-background-color: transparent;
+  --ifm-navbar-height: 8rem;
+  --ifm-transition-fast: 0ms;
+  --ifm-transition-timing-default: 0ms;
+}
+
+[data-theme='dark'] {
+  --socratism-link-color: #5eead4;
+  --socratism-navbar-link-color: rgba(255, 255, 255, 0.88);
+  --ifm-link-color: var(--socratism-link-color);
+  --ifm-link-hover-color: var(--socratism-link-color);
+  --ifm-navbar-link-color: var(--socratism-navbar-link-color);
+  --ifm-navbar-link-hover-color: #fff;
+}
+
+html,
+body {
+  font-family: var(--global-font-family);
+  font-size: var(--global-font-size);
+  line-height: var(--global-line-height);
+  font-weight: var(--global-font-weight-regular);
+}
+
+body :where(p, span, a, li, blockquote, button, input, textarea, label, code, pre) {
+  font-family: var(--global-font-family);
+  font-size: var(--global-font-size);
+  font-weight: var(--global-font-weight-regular);
+}
+
+body :where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--global-font-family);
+  font-size: var(--global-font-size);
+  font-weight: var(--global-font-weight-bold);
+}
+
+body :where(strong, b) {
+  font-weight: var(--global-font-weight-bold);
+}
+
+.theme-layout-navbar {
+  background-color: transparent;
+  box-shadow: none !important;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
+
+.theme-layout-navbar::after {
+  display: none;
+}
+
+.theme-layout-navbar .navbar__title {
+  font-weight: 100;
+}
+
+.theme-layout-navbar .navbar__title:hover {
+  opacity: 1.0;
+}
+
+.navbar__items {
+  padding-top: 0.5rem;
+  align-items: flex-start;
+}
+
+.theme-doc-sidebar-menu .sidebar-index {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.theme-doc-sidebar-menu .sidebar-index .menu__link {
+  font-weight: var(--global-font-weight-bold);
+}
+
+.theme-doc-sidebar-menu .menu__link--active,
+.theme-doc-sidebar-menu .menu__link--active:hover {
+  color: var(--socratism-link-color);
+}
+
+.theme-layout-footer {
+  display: none;
+  background-color: transparent;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.theme-layout-footer .footer__copyright {
+  opacity: 0.6;
+}
+
+.theme-doc-breadcrumbs {
+  display: none;
+}
+
+.pagination-nav {
+  display: none;
+}
+
+.theme-doc-sidebar-container {
+  border-right: 0px solid transparent;
+}
+
+
+.docMainContainer_TBSr {
+  padding-top: 8rem;
+}
