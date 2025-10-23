@@ -26,6 +26,13 @@ const config: Config = {
       rel: 'stylesheet',
     },
   ],
+  scripts: [
+    {
+      src: 'https://plausible.io/js/pa-XTo2xs5YmpnqmUFG6EmWM.js',
+      async: true,
+    },
+    '/js/plausible-init.js',
+  ],
   presets: [
     [
       'classic',
