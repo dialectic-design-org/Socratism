@@ -114,7 +114,7 @@ body :where(strong, b) {
 }
 
 .theme-doc-sidebar-container {
-  border-right: 0px solid transparent;
+  border-right: 0px solid transparent !important;
 }
 
 
