@@ -3,10 +3,20 @@
 
 # Production
 /build
+/computed
 
 # Generated files
 .docusaurus
 .cache-loader
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+python.env
 
 # Misc
 .DS_Store

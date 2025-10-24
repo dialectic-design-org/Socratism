@@ -1,0 +1,25 @@
+.videoContainer {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  border-radius: 6px;
+  outline: none;
+}
+
+.video::-webkit-media-controls {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.videoContainer:hover .video::-webkit-media-controls {
+  opacity: 1;
+}
