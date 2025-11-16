@@ -12,7 +12,9 @@
 .feed-page__grid {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0rem;
+  align-items: center;
+  padding: 0rem 0;
 }
 
 .feed-card {
@@ -29,37 +31,62 @@
 .feed-card__mediaWrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 0;
 }
 
 .feed-card__media {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
-  object-fit: cover;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .feed-card__media--fallback {
   display: grid;
   place-items: center;
   font-size: 0.875rem;
-  border: 1px dashed currentColor;
   min-height: 200px;
+  border: 1px dashed currentColor;
+  width: min(92vw, 600px);
 }
 
 .feed-card__overlay {
   position: absolute;
-  right: 1rem;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.feed-card__overlayContent {
+  position: sticky;
   bottom: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
   gap: 0.5rem;
   color: inherit;
-  max-width: 80%;
-  opacity: 0;
-  pointer-events: none;
+  max-width: min(720px, 90vw);
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0px;
+  backdrop-filter: blur(8px);
+}
+
+[data-theme='light'] .feed-card__overlayContent {
+  background: rgba(255, 255, 255, 0.75);
+  color: #000000;
 }
 
 .feed-card__title {
@@ -68,16 +95,6 @@
 
 .feed-card__description {
   margin: 0;
-}
-
-.feed-card:hover .feed-card__media,
-.feed-card:focus-visible .feed-card__media {
-  opacity: 0.8;
-}
-
-.feed-card:hover .feed-card__overlay,
-.feed-card:focus-visible .feed-card__overlay {
-  opacity: 1;
 }
 
 [data-theme='light'] .feed-page {
@@ -92,4 +109,132 @@
 
 .feed-page-wrapper {
   background: transparent;
+}
+.feed {
+  width: 100%;
+  max-width: 720px;
+  margin-right: auto;
+}
+
+.feed__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feed__item {
+}
+
+.feed__link,
+.feed__placeholder {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.feed__media {
+  width: 100%;
+  aspect-ratio: var(--feed-media-width, 16) / var(--feed-media-height, 9);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme='light'] .feed__media {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.feed__media img,
+.feed__media video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.feed__mediaFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  opacity: 0.65;
+}
+
+.feed__media--placeholder {
+  animation: feedPulse 1.5s ease-in-out infinite;
+}
+
+.feed__body {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.feed__link:hover .feed__body,
+.feed__link:focus-visible .feed__body {
+  opacity: 1;
+}
+
+.feed__body h3 {
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+}
+
+.feed__date {
+  font-size: 0.85rem;
+  color: #f2f2f2;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+}
+
+.feed__placeholder .feed__body {
+  position: static;
+  opacity: 1;
+  margin-top: 0.75rem;
+  pointer-events: auto;
+}
+
+.feed__titlePlaceholder,
+.feed__datePlaceholder {
+  display: block;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .feed__titlePlaceholder,
+[data-theme='light'] .feed__datePlaceholder {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.feed__titlePlaceholder {
+  height: 1.2rem;
+  width: 60%;
+}
+
+.feed__datePlaceholder {
+  height: 0.8rem;
+  width: 40%;
+}
+
+@keyframes feedPulse {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
 }

@@ -7,6 +7,7 @@ import MDXContent from '@theme/MDXContent';
 import styles from './styles.module.css';
 
 const VIDEO_EXTENSIONS = ['.mp4', '.webm', '.ogg', '.ogv', '.mov', '.m4v'];
+const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.bmp', '.tiff', '.webp'];
 
 function useSyntheticTitle(): string | null {
   const {metadata, frontMatter, contentTitle} = useDoc();
@@ -26,6 +27,11 @@ function normalizeExtension(src: string): string {
 function isVideoSource(src: string): boolean {
   const normalized = normalizeExtension(src);
   return VIDEO_EXTENSIONS.some((ext) => normalized.endsWith(ext));
+}
+
+function isImageSource(src: string): boolean {
+  const normalized = normalizeExtension(src);
+  return IMAGE_EXTENSIONS.some((ext) => normalized.endsWith(ext));
 }
 
 function FileSourcePreview({source}: {source: string}) {
@@ -48,6 +54,20 @@ function FileSourcePreview({source}: {source: string}) {
           </a>
           .
         </video>
+      </div>
+    );
+  }
+
+  if (isImageSource(source)) {
+    return (
+      <div className={clsx('margin-bottom--lg', styles.imageContainer)}>
+        <img
+          src={source}
+          alt="Work media preview"
+          className={styles.image}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     );
   }

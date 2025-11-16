@@ -7,9 +7,11 @@ sidebar_class_name: sidebar-index
 sidebar_position: 0
 ---
 
+import Feed from '@site/src/components/Feed';
+
 # Works
 
-List of works here:
+<Feed />
 
 ---
 

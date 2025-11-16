@@ -96,10 +96,12 @@ export default function FeedPage(): ReactElement {
                 <div className="feed-card__mediaWrapper">
                   {renderMedia(work)}
                   <div className="feed-card__overlay">
-                    <h2 className="feed-card__title">{work.title}</h2>
-                    {work.description ? (
-                      <p className="feed-card__description">{work.description}</p>
-                    ) : null}
+                    <div className="feed-card__overlayContent">
+                      <h2 className="feed-card__title">{work.title}</h2>
+                      {work.description ? (
+                        <p className="feed-card__description">{work.description}</p>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </Link>
