@@ -1,6 +1,7 @@
 import type {ReactElement} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import ForceDarkMode from '@site/src/components/ForceDarkMode';
 import works from '@site/computed/works-index.json';
 
 type Work = (typeof works)[number];
@@ -85,6 +86,7 @@ export default function FeedPage(): ReactElement {
       title="Feed"
       description="Latest Hyperobjects works feed"
       wrapperClassName="feed-page-wrapper">
+      <ForceDarkMode />
       <main className="feed-page">
         <div className="container feed-page__content">
           <section className="feed-page__grid">
