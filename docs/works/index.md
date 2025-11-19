@@ -12,12 +12,3 @@ import Feed from '@site/src/components/Feed';
 # Works
 
 <Feed />
-
----
-
-# Creation
-
-Works are created through process.
-
-
-Works can be nested.

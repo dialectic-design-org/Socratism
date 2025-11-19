@@ -1,10 +1,21 @@
-import type {ReactElement} from 'react';
+import {useEffect, useRef, useState, type CSSProperties, type ReactElement, type RefObject} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import ForceDarkMode from '@site/src/components/ForceDarkMode';
 import works from '@site/computed/works-index.json';
 
 type Work = (typeof works)[number];
+
+
+const getLatestWorks = (): Work[] => {
+  const byIssuedDesc = [...works].sort((a, b) => {
+    const aTime = Date.parse(a.issued ?? a.created ?? '') || 0;
+    const bTime = Date.parse(b.issued ?? b.created ?? '') || 0;
+    return bTime - aTime;
+  });
+
+  return byIssuedDesc.slice(0, 100);
+};
 
 const VIDEO_EXTENSIONS = ['.mp4', '.m4v', '.webm', '.ogg', '.ogv', '.mov', '.avi'];
 const IMAGE_EXTENSIONS = [
@@ -80,7 +91,85 @@ const renderMedia = (work: Work): ReactElement => {
   );
 };
 
+const thresholds = Array.from({length: 21}, (_, idx) => idx / 20);
+
+const useScrollProgress = (): {ref: RefObject<HTMLDivElement>; progress: number} => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) {
+      return;
+    }
+
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setProgress(1);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setProgress(entry.intersectionRatio);
+      },
+      {rootMargin: '-15% 0px -15% 0px', threshold: thresholds},
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.unobserve(node);
+      observer.disconnect();
+    };
+  }, []);
+
+  return {ref, progress};
+};
+
+const clamp = (value: number, min = 0, max = 1): number => Math.min(max, Math.max(min, value));
+
+const getOverlayOpacity = (ratio: number): number => {
+  // Start fading when 20% of the media is visible and finish when ~85% is visible
+  const start = 0.2;
+  const end = 0.5;
+  if (ratio <= start) {
+    return 0;
+  }
+  if (ratio >= end) {
+    return 1;
+  }
+  return clamp((ratio - start) / (end - start));
+};
+
+type FeedCardProps = {
+  work: Work;
+};
+
+const FeedCard = ({work}: FeedCardProps): ReactElement => {
+  const {ref, progress} = useScrollProgress();
+  const overlayOpacity = getOverlayOpacity(progress);
+  const overlayStyle = {
+    '--feed-card-overlay-opacity': overlayOpacity,
+  } as CSSProperties;
+
+  return (
+    <Link to={work.slug} className="feed-card">
+      <div className="feed-card__mediaWrapper" ref={ref}>
+        {renderMedia(work)}
+        <div className="feed-card__overlay" style={overlayStyle}>
+          <div className="feed-card__overlayContent">
+            <h2 className="feed-card__title">{work.title}</h2>
+            {work.description ? <p className="feed-card__description">{work.description}</p> : null}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 export default function FeedPage(): ReactElement {
+  const latestWorks = getLatestWorks();
   return (
     <Layout
       title="Feed"
@@ -90,23 +179,8 @@ export default function FeedPage(): ReactElement {
       <main className="feed-page">
         <div className="container feed-page__content">
           <section className="feed-page__grid">
-            {works.map((work) => (
-              <Link
-                key={work.slug}
-                to={work.slug}
-                className="feed-card">
-                <div className="feed-card__mediaWrapper">
-                  {renderMedia(work)}
-                  <div className="feed-card__overlay">
-                    <div className="feed-card__overlayContent">
-                      <h2 className="feed-card__title">{work.title}</h2>
-                      {work.description ? (
-                        <p className="feed-card__description">{work.description}</p>
-                      ) : null}
-                    </div>
-                  </div>
-                </div>
-              </Link>
+            {latestWorks.map((work) => (
+              <FeedCard key={work.slug} work={work} />
             ))}
           </section>
         </div>
