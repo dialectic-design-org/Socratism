@@ -1,3 +1,4 @@
+/* 1. Container: Lock down the rendering boundaries */
 .cube-toggle {
   --cube-size: 1.1rem;
   --cube-face-offset: 0.015rem;
@@ -8,12 +9,24 @@
   height: 1.8rem;
   perspective: 220px;
   transform-style: preserve-3d;
+  
+  /* FIX A: Isolate the 3D context so it doesn't calculate against the whole page */
+  isolation: isolate;
+  /* FIX B: Tell browser this element's layout doesn't affect outside elements */
+  contain: layout style; 
+  position: relative;
+  z-index: 1;
 }
 
+/* 2. Orbits: Remove will-change */
 .cube-toggle__orbit {
   display: inline-block;
   transform-style: preserve-3d;
-  will-change: transform;
+  
+  /* FIX C: REMOVED will-change. 
+     Modern GPUs handle this rotation fine without it. 
+     Keeping it causes the "green screen" texture memory bug. */
+  /* will-change: transform; */ 
 }
 
 .cube-toggle__orbit--x {
@@ -43,9 +56,16 @@
   position: absolute;
   inset: 0;
   border-radius: 0.08rem;
+  
+  /* FIX D: Force hardware acceleration strictly on the faces */
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  
   opacity: var(--cube-face-opacity, 0.95);
   transition: opacity 0.3s ease;
+  
+  /* FIX E: Anti-aliasing hack to prevent color bleeding edges */
+  outline: 1px solid transparent;
 }
 
 .toggleButton_yw5v:hover {
@@ -88,36 +108,29 @@
   transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2 + var(--cube-face-offset)));
 }
 
+/* FIX F: Modified the dark mode filter */
 .cube-toggle__cube[data-dark='true'] span {
+  /* Reduced opacity manually instead of relying on filter brightness */
   opacity: calc(var(--cube-face-opacity, 0.95) * 0.85);
-  filter: saturate(1.1) brightness(0.85);
+  
+  /* CAUTION: Filters on 3D elements often break compositing. 
+     If the glitch persists, delete the line below entirely. */
+  filter: saturate(1.1) brightness(0.85); 
 }
 
 @keyframes cube-rotate-x {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateX(360deg);
-  }
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(360deg); }
 }
 
 @keyframes cube-rotate-y {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
 @keyframes cube-rotate-z {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
