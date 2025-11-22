@@ -27,6 +27,8 @@
   --ifm-link-hover-color: var(--socratism-link-color);
   --ifm-navbar-link-color: var(--socratism-navbar-link-color);
   --ifm-navbar-link-hover-color: #fff;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 html,
@@ -53,12 +55,45 @@ body :where(strong, b) {
   font-weight: var(--global-font-weight-bold);
 }
 
+.table-of-contents__link {
+  color: var(--socratism-link-color);
+}
+
 .theme-layout-navbar {
   background-color: transparent;
   box-shadow: none !important;
   position: absolute;
   left: 0px;
   right: 0px;
+}
+
+.theme-layout-navbar svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.navbar-sidebar__brand {
+  height: 50px;
+}
+.navbar-sidebar__brand .navbar__brand {
+  margin-left: 25px;
+}
+
+.navbar-sidebar__brand .margin-right--md {
+  position: absolute;
+  right: 0px;
+}
+.navbar-sidebar__close {
+  position: relative;
+  right: 40px;
+  top: 2px;
+}
+.navbar-sidebar__close svg {
+  width: 16px;
+  height: 16px;
+  margin-top: -2px;
+  margin-right: 8px;
 }
 
 .theme-layout-navbar::after {
@@ -76,6 +111,10 @@ body :where(strong, b) {
 .navbar__items {
   padding-top: 0.5rem;
   align-items: flex-start;
+}
+
+.menu {
+  position: relative;
 }
 
 .theme-doc-sidebar-menu .sidebar-index {
@@ -115,6 +154,62 @@ body :where(strong, b) {
 
 .theme-doc-sidebar-container {
   border-right: 0px solid transparent !important;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-doc-sidebar-container.sidebarToggleEnabled {
+  position: relative;
+}
+
+.theme-doc-sidebar-container.sidebarToggleEnabled .theme-doc-sidebar-menu {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform;
+  position: relative;
+}
+
+.sidebarToggleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.0);
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+  top: -2px;
+  right: -8px;
+  border: 0px solid transparent;
+}
+
+.sidebarToggleButton:hover,
+.sidebarToggleButton:focus-visible {
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.sidebarToggleButtonWrapper {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 3;
+  display: flex;
+}
+
+[data-theme='light'] .sidebarToggleButton {
+  background: rgba(255, 255, 255, 0.0);
+  color: #000;
+}
+
+.doc-sidebar-hidden .theme-doc-sidebar-container .theme-doc-sidebar-menu {
+  transform: translateX(-110%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 

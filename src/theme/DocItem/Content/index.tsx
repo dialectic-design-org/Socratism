@@ -5,6 +5,7 @@ import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import Heading from '@theme/Heading';
 import MDXContent from '@theme/MDXContent';
 import styles from './styles.module.css';
+import SidebarToggle from '@site/src/components/SidebarToggle';
 
 const VIDEO_EXTENSIONS = ['.mp4', '.webm', '.ogg', '.ogv', '.mov', '.m4v'];
 const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.bmp', '.tiff', '.webp'];
@@ -89,6 +90,7 @@ export default function DocItemContent({children}: {children: React.ReactNode}) 
 
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
+      <SidebarToggle />
       {syntheticTitle && (
         <header>
           <Heading as="h1">{syntheticTitle}</Heading>
