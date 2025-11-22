@@ -11,4 +11,7 @@ import Feed from '@site/src/components/Feed';
 
 # Works
 
-<Feed />
+<Feed slugs={[
+"/works/2025_experiments_rgb_audio_reactive_coloring",
+"/works/2025_experiments_random_walk_paths_x_99_luftballons"
+]} />

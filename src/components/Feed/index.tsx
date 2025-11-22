@@ -167,13 +167,32 @@ const FeedItem = ({work}: FeedItemProps): ReactElement => {
   );
 };
 
-export default function Feed(): ReactElement {
-  const latestWorks = getLatestWorks();
+type FeedProps = {
+  slugs?: string[];
+};
+
+const mapBySlug = new Map(works.map((work) => [work.slug, work]));
+
+const resolveWorksBySlugs = (slugs: string[]): Work[] =>
+  slugs
+    .map((slug) => mapBySlug.get(slug))
+    .filter((entry): entry is Work => Boolean(entry));
+
+const resolveFeedWorks = (slugs?: string[]): Work[] => {
+  if (slugs && slugs.length) {
+    return resolveWorksBySlugs(slugs);
+  }
+
+  return getLatestWorks();
+};
+
+export default function Feed({slugs}: FeedProps): ReactElement {
+  const feedWorks = resolveFeedWorks(slugs);
 
   return (
     <section className="feed">
       <div className="feed__items">
-        {latestWorks.map((work) => (
+        {feedWorks.map((work) => (
           <FeedItem key={work.slug} work={work} />
         ))}
       </div>

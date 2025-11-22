@@ -11,4 +11,7 @@ import Feed from '@site/src/components/Feed';
 
 # Works
 
-<Feed />
+<Feed slugs={[
+"/works/cube_x_gamma_player",
+"/works/cube_x_solarized"
+]} />

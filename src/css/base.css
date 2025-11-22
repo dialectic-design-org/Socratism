@@ -140,6 +140,23 @@ body :where(strong, b) {
   right: 0px;
 }
 
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--socratism-link-color);
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+}
+
 .theme-layout-footer .footer__copyright {
   opacity: 0.6;
 }
@@ -158,6 +175,7 @@ body :where(strong, b) {
   will-change: transform;
   display: flex;
   flex-direction: column;
+  padding-top: 8rem;
 }
 
 .theme-doc-sidebar-container.sidebarToggleEnabled {
