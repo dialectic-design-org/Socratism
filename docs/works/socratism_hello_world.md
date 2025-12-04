@@ -16,5 +16,3 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/DALL%
 ---
 
 Socrates with an Apple Computer. Generated with Dall-E.
-
-## Essay
