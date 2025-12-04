@@ -13,5 +13,7 @@ import Feed from '@site/src/components/Feed';
 
 <Feed slugs={[
 "/works/cube_x_gamma_player",
-"/works/cube_x_solarized"
+"/works/cube_x_solarized",
+"/works/cube_x_sleeping_giants",
+"/works/cube_x_i9"
 ]} />
