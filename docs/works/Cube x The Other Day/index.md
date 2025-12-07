@@ -17,5 +17,6 @@ import Feed from '@site/src/components/Feed';
 "/works/cube_x_sleeping_giants",
 "/works/cube_x_i9",
 "/works/cube_x_time_out_of_mind",
-"/works/cube_x_growth"
+"/works/cube_x_growth",
+"/works/cube_x_gateway_of_zen"
 ]} />
