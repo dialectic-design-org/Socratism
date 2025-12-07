@@ -15,5 +15,6 @@ import Feed from '@site/src/components/Feed';
 "/works/cube_x_gamma_player",
 "/works/cube_x_solarized",
 "/works/cube_x_sleeping_giants",
-"/works/cube_x_i9"
+"/works/cube_x_i9",
+"/works/cube_x_time_out_of_mind"
 ]} />
