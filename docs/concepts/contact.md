@@ -2,6 +2,7 @@
 title: Contact
 slug: /concepts/contact
 description: Get in contact with these works & concepts via performances, appearances, showings, workshops.
+sidebar_position: 100
 ---
 
 

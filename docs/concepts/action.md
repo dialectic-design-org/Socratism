@@ -2,7 +2,7 @@
 title: Action
 slug: /concepts/action
 description: Initiating
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-Initiating
+Taking action is [art](/concepts/art).
