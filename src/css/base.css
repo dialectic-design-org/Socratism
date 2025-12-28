@@ -62,7 +62,7 @@ body :where(strong, b) {
 .theme-layout-navbar {
   background-color: transparent;
   box-shadow: none !important;
-  position: absolute;
+  position: fixed;
   left: 0px;
   right: 0px;
 }
