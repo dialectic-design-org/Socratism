@@ -20,7 +20,8 @@ import Feed from '@site/src/components/Feed';
 "/works/cube_x_growth",
 "/works/cube_x_gateway_of_zen",
 "/works/cube_x_medusa",
-"/works/cube_x_man_from_tomorrow"
+"/works/cube_x_man_from_tomorrow",
+"/works/cube_x_spider_formation"
 ]} />
 
 # Description
