@@ -21,7 +21,10 @@ import Feed from '@site/src/components/Feed';
 "/works/cube_x_gateway_of_zen",
 "/works/cube_x_medusa",
 "/works/cube_x_man_from_tomorrow",
-"/works/cube_x_spider_formation"
+"/works/cube_x_spider_formation",
+"/works/cube_x_childhood_maria_s_mix",
+"/works/cube_x_humana",
+"/works/cube_x_inner_life_529"
 ]} />
 
 # Description
