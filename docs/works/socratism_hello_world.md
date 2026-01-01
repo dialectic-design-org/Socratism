@@ -2,7 +2,7 @@
 title: "Socratism Hello World"
 slug: "/works/socratism_hello_world"
 description: "Socrates with an Apple Computer (Generated with Dall-E)"
-sidebar_position: 2
+sidebar_position: 3
 created: "2023-11-30"
 issued: "2023-11-30"
 creator: "Erwin Hoogerwoord"
