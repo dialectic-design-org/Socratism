@@ -14,5 +14,6 @@ About [Genuary](https://genuary.art/).
 
 <Feed slugs={[
 "/works/genuary_2026_day_1",
-"/works/genuary_2026_day_2"
+"/works/genuary_2026_day_2",
+"/works/genuary_2026_day_3"
 ]} />

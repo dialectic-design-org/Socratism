@@ -15,4 +15,6 @@ previewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genuary2026
 staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genuary2026/genuary2026_day_01_full_loop_1_preview_loop_cropped_below_notch.mp4"
 ---
 
+🔊 Audio-reactive work best experienced with sound on.
+
 Work based on day 1 prompt of Genuary 2026.
