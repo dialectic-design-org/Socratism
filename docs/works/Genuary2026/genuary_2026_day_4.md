@@ -16,3 +16,7 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 4 prompt of Genuary 2026.
+
+Prompt: *Lowres. An image or graphic with low resolution, where details are simplified or pixelated.*
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

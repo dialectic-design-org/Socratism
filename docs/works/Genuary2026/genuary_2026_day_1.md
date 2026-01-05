@@ -18,3 +18,7 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 🔊 Audio-reactive work best experienced with sound on.
 
 Work based on day 1 prompt of Genuary 2026.
+
+Prompt: *One color, one shape.*
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

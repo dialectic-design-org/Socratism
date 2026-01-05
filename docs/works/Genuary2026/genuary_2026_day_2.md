@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 2 prompt of Genuary 2026.
+
+Prompt: *Twelve principles of animation.*
+
+(In the capture I accidentally misremembered this as Ten principles of animation...)
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).
