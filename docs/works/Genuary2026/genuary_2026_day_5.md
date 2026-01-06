@@ -6,7 +6,6 @@ sidebar_position: 5
 created: "2026-01-05"
 issued: "2026-01-05"
 creator: "Erwin Hoogerwoord"
-contributor: "Genuary"
 subject: "Genuary"
 type: "digital"
 format: "Visual digital animated"
