@@ -93,6 +93,49 @@ const renderMedia = (work: Work): ReactElement => {
 
 const thresholds = Array.from({length: 21}, (_, idx) => idx / 20);
 
+const VIEWPORT_INTERSECTION_OPTIONS: IntersectionObserverInit = {
+  rootMargin: '200px 0px',
+  threshold: 0,
+};
+
+const useInViewport = (): {ref: RefObject<HTMLDivElement>; isVisible: boolean} => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      return;
+    }
+
+    if (!ref.current) {
+      return;
+    }
+
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, VIEWPORT_INTERSECTION_OPTIONS);
+
+    const current = ref.current;
+    observer.observe(current);
+
+    return () => {
+      observer.unobserve(current);
+      observer.disconnect();
+    };
+  }, [isVisible]);
+
+  return {ref, isVisible};
+};
+
 const useScrollProgress = (): {ref: RefObject<HTMLDivElement>; progress: number} => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0);
@@ -147,24 +190,31 @@ type FeedCardProps = {
 };
 
 const FeedCard = ({work}: FeedCardProps): ReactElement => {
-  const {ref, progress} = useScrollProgress();
+  const {ref: viewportRef, isVisible} = useInViewport();
+  const {ref: progressRef, progress} = useScrollProgress();
   const overlayOpacity = getOverlayOpacity(progress);
   const overlayStyle = {
     '--feed-card-overlay-opacity': overlayOpacity,
   } as CSSProperties;
 
   return (
-    <Link to={work.slug} className="feed-card">
-      <div className="feed-card__mediaWrapper" ref={ref}>
-        {renderMedia(work)}
-        <div className="feed-card__overlay" style={overlayStyle}>
-          <div className="feed-card__overlayContent">
-            <h2 className="feed-card__title">{work.title}</h2>
-            {work.description ? <p className="feed-card__description">{work.description}</p> : null}
+    <div className="feed-card" ref={viewportRef}>
+      {isVisible ? (
+        <Link to={work.slug} className="feed-card__link">
+          <div className="feed-card__mediaWrapper" ref={progressRef}>
+            {renderMedia(work)}
+            <div className="feed-card__overlay" style={overlayStyle}>
+              <div className="feed-card__overlayContent">
+                <h2 className="feed-card__title">{work.title}</h2>
+                {work.description ? <p className="feed-card__description">{work.description}</p> : null}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </Link>
+        </Link>
+      ) : (
+        <div className="feed-card__placeholder" aria-hidden="true" />
+      )}
+    </div>
   );
 };
 

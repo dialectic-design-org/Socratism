@@ -24,8 +24,24 @@
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+  min-height: calc(100vh - 4rem);
+}
+
+.feed-card__link {
+  display: block;
   text-decoration: none;
   color: inherit;
+}
+
+.feed-card__placeholder {
+  width: 100%;
+  min-height: calc(100vh - 4rem);
+  background: rgba(255, 255, 255, 0.04);
+  animation: feedPulse 1.5s ease-in-out infinite;
+}
+
+[data-theme='light'] .feed-card__placeholder {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .feed-card__mediaWrapper {
