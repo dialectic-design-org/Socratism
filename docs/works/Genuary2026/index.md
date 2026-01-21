@@ -32,5 +32,6 @@ About [Genuary](https://genuary.art/).
 "/works/genuary_2026_day_17",
 "/works/genuary_2026_day_18",
 "/works/genuary_2026_day_19",
-"/works/genuary_2026_day_20"
+"/works/genuary_2026_day_20",
+"/works/genuary_2026_day_21"
 ]} />
