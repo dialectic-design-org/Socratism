@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, type CSSProperties, type ReactElement, type RefObject} from 'react';
+import {useEffect, useRef, useState, useCallback, type CSSProperties, type ReactElement, type RefObject} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import ForceDarkMode from '@site/src/components/ForceDarkMode';
@@ -136,12 +136,16 @@ const useInViewport = (): {ref: RefObject<HTMLDivElement>; isVisible: boolean} =
   return {ref, isVisible};
 };
 
-const useScrollProgress = (): {ref: RefObject<HTMLDivElement>; progress: number} => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const useScrollProgress = (): {ref: (node: HTMLDivElement | null) => void; progress: number} => {
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const node = ref.current;
+  const ref = useCallback((node: HTMLDivElement | null) => {
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current = null;
+    }
+
     if (!node) {
       return;
     }
@@ -159,12 +163,8 @@ const useScrollProgress = (): {ref: RefObject<HTMLDivElement>; progress: number}
       {rootMargin: '-15% 0px -15% 0px', threshold: thresholds},
     );
 
+    observerRef.current = observer;
     observer.observe(node);
-
-    return () => {
-      observer.unobserve(node);
-      observer.disconnect();
-    };
   }, []);
 
   return {ref, progress};
