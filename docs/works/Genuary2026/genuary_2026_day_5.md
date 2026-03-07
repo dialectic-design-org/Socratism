@@ -19,4 +19,6 @@ Work based on day 5 prompt of Genuary 2026.
 
 Prompt: *Write “Genuary”. Avoid using a font.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

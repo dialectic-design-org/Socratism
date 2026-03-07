@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 18 prompt of Genuary 2026.
+
+Prompt: *Unexpected path. Draw a route that changes direction based on one very simple rule.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

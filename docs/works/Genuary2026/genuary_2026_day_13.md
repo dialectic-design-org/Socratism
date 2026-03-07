@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 13 prompt of Genuary 2026.
+
+Prompt: *Self portrait. For example, get started with a very basic human face, a few circles or oval shapes. How far can you improve this by adding features that actually look like you. Try adding eyes, eyelashes, hair, and make a few parameters or colors variable. Even though you are aiming for a self portrait, it might be fun to render some random variations as well.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

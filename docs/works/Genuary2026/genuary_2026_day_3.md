@@ -21,4 +21,6 @@ Work based on day 3 prompt of Genuary 2026.
 
 Prompt: *Fibonacci forever. Create a work that uses the Fibonacci sequence in some way.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

@@ -21,4 +21,6 @@ Work based on day 1 prompt of Genuary 2026.
 
 Prompt: *One color, one shape.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

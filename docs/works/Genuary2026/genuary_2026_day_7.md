@@ -19,4 +19,6 @@ Work based on day 7 prompt of Genuary 2026.
 
 Prompt: *Boolean algebra. Get inspired by Boolean algebra, in any way.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

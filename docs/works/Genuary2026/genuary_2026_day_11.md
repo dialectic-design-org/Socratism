@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 11 prompt of Genuary 2026.
+
+Prompt: *Quine. A Quine is a form of code poetry, it’s a computer program that outputs exactly its own source code.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

@@ -19,4 +19,6 @@ Work based on day 6 prompt of Genuary 2026.
 
 Prompt: *Lights on/off. Make something that changes when you switch on or off the “digital” lights.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 9 prompt of Genuary 2026.
+
+Propmt: *Crazy automaton. Cellular automata with crazy rules.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

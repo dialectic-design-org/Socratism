@@ -15,6 +15,14 @@ previewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genuary2026
 staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genuary2026/genuary2026_day_25_full-preview_loop_widescreen_1080p.mp4"
 ---
 
+🔊 Audio-reactive work best experienced with sound on.
+
 Work based on day 25 prompt of Genuary 2026.
 
+Prompt: *Organic Geometry. Forms that look or act organic but are constructed entirely from geometric shapes.*
+
 Sound: Amon Tobin - Slow Sun.
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

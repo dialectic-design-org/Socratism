@@ -19,4 +19,6 @@ Work based on day 4 prompt of Genuary 2026.
 
 Prompt: *Lowres. An image or graphic with low resolution, where details are simplified or pixelated.*
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

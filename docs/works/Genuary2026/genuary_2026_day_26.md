@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 26 prompt of Genuary 2026.
+
+Prompt: *Recursive Grids. Split the canvas into a grid of some kind and recurse on each cell again and again.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

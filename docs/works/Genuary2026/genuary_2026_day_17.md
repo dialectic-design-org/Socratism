@@ -16,3 +16,9 @@ staticPreviewSource: "https://hyperobjects.ams3.cdn.digitaloceanspaces.com/Genua
 ---
 
 Work based on day 17 prompt of Genuary 2026.
+
+Prompt: *Wallpaper group. There are only 17 ways to cover a plane with a repeating pattern, choose your favourite on this page: Wallpaper group.*
+
+## Genuary26
+
+Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).

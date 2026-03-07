@@ -21,4 +21,6 @@ Prompt: *Twelve principles of animation.*
 
 (In the capture I accidentally misremembered this as Ten principles of animation...)
 
+## Genuary26
+
 Read more about the context of Genuary here: [https://genuary.art](https://genuary.art/).
